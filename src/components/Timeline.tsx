@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
+import { Slider } from "@/components/ui/slider";
 
 export function Timeline() {
   const [selectedYear, setSelectedYear] = useState(2024);
@@ -38,6 +39,13 @@ export function Timeline() {
     };
   }, []);
 
+  const handleSliderChange = (value: number[]) => {
+    setSelectedYear(value[0]);
+  };
+
+  // Find the index of the selected year for calculating the progress
+  const yearIndex = yearsData.indexOf(selectedYear);
+  
   return (
     <section id="timeline" className="py-24 px-4 bg-gradient-to-b from-white to-gray-50">
       <div
@@ -56,52 +64,9 @@ export function Timeline() {
           </p>
         </div>
 
-        <div className="relative mt-20 px-4">
-          {/* Timeline visual with dots */}
-          <div className="absolute left-0 right-0 h-1 bg-gray-200 top-1/2 transform -translate-y-1/2 rounded-full">
-            <div 
-              className="absolute left-0 h-1 bg-nitte-gold rounded-full transition-all duration-500 ease-in-out"
-              style={{ 
-                width: `${((yearsData.indexOf(selectedYear)) / (yearsData.length - 1)) * 100}%` 
-              }}
-            />
-            
-            {yearsData.map((year, index) => (
-              <button
-                key={year}
-                className={`absolute w-5 h-5 rounded-full transform -translate-y-1/2 -translate-x-1/2 transition-all duration-300 ${
-                  year <= selectedYear ? 'bg-nitte-gold' : 'bg-gray-300'
-                }`}
-                style={{ 
-                  left: `${(index / (yearsData.length - 1)) * 100}%`,
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: year === selectedYear ? 20 : 10
-                }}
-                onClick={() => setSelectedYear(year)}
-              />
-            ))}
-          </div>
-
-          {/* Year labels */}
-          <div className="flex justify-between mt-8 relative">
-            {yearsData.map((year) => (
-              <div 
-                key={year} 
-                className="text-sm font-medium text-gray-500"
-                style={{ 
-                  opacity: year === selectedYear ? 1 : 0.7,
-                  transform: year === selectedYear ? 'scale(1.1)' : 'scale(1)',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {year}
-              </div>
-            ))}
-          </div>
-
+        <div className="mt-20 px-4 flex flex-col">
           {/* Achievement display */}
-          <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-100 transition-all duration-500 ease-in-out">
+          <div className="mb-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-100 transition-all duration-500 ease-in-out">
             <div className="flex items-center mb-4">
               <div className="w-12 h-12 rounded-full bg-nitte-gold/10 flex items-center justify-center text-nitte-gold mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -128,6 +93,64 @@ export function Timeline() {
                 />
               </div>
             </div>
+          </div>
+
+          {/* Timeline slider with dots */}
+          <div className="relative mt-4">
+            <div className="absolute left-0 right-0 h-1 bg-gray-200 top-1/2 transform -translate-y-1/2 rounded-full">
+              <div 
+                className="absolute left-0 h-1 bg-nitte-gold rounded-full transition-all duration-500 ease-in-out"
+                style={{ 
+                  width: `${((yearsData.indexOf(selectedYear)) / (yearsData.length - 1)) * 100}%` 
+                }}
+              />
+              
+              {yearsData.map((year, index) => (
+                <button
+                  key={year}
+                  className={`absolute w-5 h-5 rounded-full transform -translate-y-1/2 -translate-x-1/2 transition-all duration-300 ${
+                    year <= selectedYear ? 'bg-nitte-gold' : 'bg-gray-300'
+                  }`}
+                  style={{ 
+                    left: `${(index / (yearsData.length - 1)) * 100}%`,
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: year === selectedYear ? 20 : 10
+                  }}
+                  onClick={() => setSelectedYear(year)}
+                />
+              ))}
+            </div>
+
+            {/* Year labels */}
+            <div className="flex justify-between mt-8 relative">
+              {yearsData.map((year) => (
+                <div 
+                  key={year} 
+                  className="text-sm font-medium text-gray-500"
+                  style={{ 
+                    opacity: year === selectedYear ? 1 : 0.7,
+                    transform: year === selectedYear ? 'scale(1.1)' : 'scale(1)',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  {year}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Slider component */}
+          <div className="mt-16 w-full px-4">
+            <Slider
+              defaultValue={[selectedYear]}
+              min={2024}
+              max={2030}
+              step={1}
+              value={[selectedYear]}
+              onValueChange={handleSliderChange}
+              className="w-full"
+            />
           </div>
         </div>
       </div>
