@@ -55,7 +55,7 @@ export function Navbar() {
         <div className="flex items-center">
           <Link to="/">
             <img 
-              src="/nmit-logo.png" 
+              src="/nmit.jpg" 
               alt="NMIT Logo" 
               className="h-12 w-auto"
             />
