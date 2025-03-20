@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
             <img 
-              src="/rnd-logo.png" 
+              src="/rnd.png" 
               alt="Nitte R&D Club Logo" 
               className="h-12 mb-4"
             />

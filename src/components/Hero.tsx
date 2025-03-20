@@ -46,7 +46,7 @@ export function Hero() {
       <div className="relative z-10 flex flex-col items-center justify-center max-w-5xl mx-auto text-center">
         <img
           ref={imageRef}
-          src="/rnd-logo.png"
+          src="/rnd.png"
           alt="Nitte R&D Club Logo"
           className="w-44 h-auto mb-8 opacity-0 transition-all duration-1000 animate-float"
         />
