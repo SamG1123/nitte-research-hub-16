@@ -34,7 +34,8 @@ export function Departments() {
     "Mechanical Engineering",
     "Civil Engineering",
     "Electrical & Electronics Engineering",
-    "Aeronautical Engineering"
+    "Aeronautical Engineering",
+    "Very-Large-Scale Integration"
   ];
 
   return (

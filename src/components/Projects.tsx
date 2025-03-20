@@ -54,7 +54,7 @@ export function Projects() {
       title: "Sustainable Construction Materials",
       department: "Civil Engineering",
       description: "Developing eco-friendly building materials from recycled waste products",
-      image: "/project-civil.jpg"
+      image: "/project-civil.jpeg"
     }
   ];
 
