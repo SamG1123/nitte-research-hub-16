@@ -1,9 +1,21 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { Menu } from 'lucide-react';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +29,19 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const menuItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/#about' },
+    { name: 'Departments', path: '/#departments' },
+    { name: 'Timeline', path: '/#timeline' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Apply', path: '/#apply' },
+  ];
+
   return (
     <header 
       className={cn(
@@ -28,36 +53,63 @@ export function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <div className="flex items-center">
-          <img 
-            src="/nmit-logo.png" 
-            alt="NMIT Logo" 
-            className="h-12 w-auto"
-          />
+          <Link to="/">
+            <img 
+              src="/nmit-logo.png" 
+              alt="NMIT Logo" 
+              className="h-12 w-auto"
+            />
+          </Link>
         </div>
         
         <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {['timeline', 'projects', 'apply'].map((item) => (
-              <li key={item}>
-                <a 
-                  href={`#${item}`} 
-                  className="text-white font-medium tracking-wide hover:text-nitte-gold transition-colors duration-300 link-underline"
-                >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <NavigationMenu>
+            <NavigationMenuList>
+              {menuItems.map((item) => (
+                <NavigationMenuItem key={item.name}>
+                  <Link 
+                    to={item.path}
+                    className="text-white font-medium tracking-wide hover:text-nitte-gold transition-colors duration-300 px-4 py-2"
+                  >
+                    {item.name}
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
         </nav>
         
         <div className="md:hidden">
-          <button className="text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+          <button 
+            className="text-white"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <Menu className="w-6 h-6" />
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-nitte-blue/95 backdrop-blur-sm">
+          <nav className="container mx-auto py-4">
+            <ul className="flex flex-col space-y-3 px-4">
+              {menuItems.map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.path}
+                    className="text-white font-medium tracking-wide hover:text-nitte-gold transition-colors duration-300 block py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
