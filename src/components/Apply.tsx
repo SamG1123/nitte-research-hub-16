@@ -1,8 +1,16 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 
 export function Apply() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [department, setDepartment] = useState<string>("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,20 +103,23 @@ export function Apply() {
               
               <div>
                 <label htmlFor="department" className="block text-sm font-medium text-white/80 mb-1">Department</label>
-                <select 
-                  id="department" 
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-nitte-gold/50 focus:border-transparent transition-all duration-200"
-                >
-                  <option value="" disabled selected className="text-gray-500">Select your department</option>
-                  <option value="cse">Computer Science & Engineering</option>
-                  <option value="aiml">Artificial Intelligence & Data Science</option>
-                  <option value="ise">Information Science & Engineering</option>
-                  <option value="ece">Electronics & Communication</option>
-                  <option value="mech">Mechanical Engineering</option>
-                  <option value="civil">Civil Engineering</option>
-                  <option value="eee">Electrical & Electronics</option>
-                  <option value="aero">Aeronautical Engineering</option>
-                </select>
+                <Select onValueChange={setDepartment} value={department}>
+                  <SelectTrigger 
+                    className="w-full px-4 py-6 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-nitte-gold/50 focus:border-transparent transition-all duration-200"
+                  >
+                    <SelectValue placeholder="Select your department" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-nitte-blue border border-white/10 text-white">
+                    <SelectItem value="cse" className="focus:bg-white/10 focus:text-white">Computer Science & Engineering</SelectItem>
+                    <SelectItem value="aiml" className="focus:bg-white/10 focus:text-white">Artificial Intelligence & Data Science</SelectItem>
+                    <SelectItem value="ise" className="focus:bg-white/10 focus:text-white">Information Science & Engineering</SelectItem>
+                    <SelectItem value="ece" className="focus:bg-white/10 focus:text-white">Electronics & Communication</SelectItem>
+                    <SelectItem value="mech" className="focus:bg-white/10 focus:text-white">Mechanical Engineering</SelectItem>
+                    <SelectItem value="civil" className="focus:bg-white/10 focus:text-white">Civil Engineering</SelectItem>
+                    <SelectItem value="eee" className="focus:bg-white/10 focus:text-white">Electrical & Electronics</SelectItem>
+                    <SelectItem value="aero" className="focus:bg-white/10 focus:text-white">Aeronautical Engineering</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               
               <div>
