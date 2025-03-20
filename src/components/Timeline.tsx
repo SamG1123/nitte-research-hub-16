@@ -3,14 +3,13 @@ import { useState, useEffect, useRef } from 'react';
 import { Slider } from "@/components/ui/slider";
 
 export function Timeline() {
-  const [selectedYear, setSelectedYear] = useState(2024);
+  const [selectedYear, setSelectedYear] = useState(2025);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const yearsData = [2024, 2025, 2026, 2027, 2028, 2029, 2030];
+  const yearsData = [2025, 2026, 2027, 2028, 2029, 2030];
   
   const achievements = {
-    2024: "Launch of the Nitte R&D Club and first successful interdepartmental project",
-    2025: "Received national recognition for innovative research in renewable energy",
-    2026: "Established partnerships with leading technology companies",
+    2025: "Launch of the Nitte R&D Club and first successful interdepartmental project",
+    2026: "Received national recognition for innovative research in renewable energy",
     2027: "Published research papers in prestigious international journals",
     2028: "Hosted the first international R&D conference at NMIT",
     2029: "Launched incubation center for student startups",
@@ -144,7 +143,7 @@ export function Timeline() {
           <div className="mt-16 w-full px-4">
             <Slider
               defaultValue={[selectedYear]}
-              min={2024}
+              min={2025}
               max={2030}
               step={1}
               value={[selectedYear]}
