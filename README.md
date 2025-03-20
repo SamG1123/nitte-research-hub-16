@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Nitte R&D Website
 
 ## Project info
 
