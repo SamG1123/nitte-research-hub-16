@@ -6,7 +6,7 @@ import { ProjectProgress } from "@/components/ProjectProgress";
 import { ProjectReports } from "@/components/ProjectReports";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Users, Calendar, MapPin } from "lucide-react";
+import { ArrowLeft, Users, Calendar, MapPin, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Mock data - in a real app this would come from an API
