@@ -1,5 +1,6 @@
 
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -28,24 +29,28 @@ export function Projects() {
 
   const projects = [
     {
+      id: "energy-monitoring",
       title: "Smart Energy Monitoring System",
       department: "Electrical & Electronics Engineering",
       description: "A real-time energy monitoring and optimization system for campus buildings",
       image: "/project-energy.jpg"
     },
     {
+      id: "ai-crop",
       title: "AI-Powered Crop Analysis",
       department: "Artificial Intelligence & Data Science",
       description: "Machine learning algorithms to optimize crop yield and reduce resource consumption",
       image: "/project-ai.jpg"
     },
     {
+      id: "delivery-robot",
       title: "Autonomous Delivery Robot",
       department: "Mechanical Engineering",
       description: "A robot designed for efficient last-mile delivery in urban environments",
       image: "/project-robot.jpg"
     },
     {
+      id: "sustainable-materials",
       title: "Sustainable Construction Materials",
       department: "Civil Engineering",
       description: "Developing eco-friendly building materials from recycled waste products",
@@ -99,15 +104,15 @@ export function Projects() {
               <div className="p-6">
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex justify-between items-center">
-                  <a 
-                    href="#" 
+                  <Link 
+                    to={`/projects/${project.id}`}
                     className="text-nitte-blue font-medium inline-flex items-center text-sm"
                   >
-                    Learn more 
+                    View project details
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 ml-1 group-hover:ml-2 transition-all">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -115,15 +120,15 @@ export function Projects() {
         </div>
         
         <div className="mt-16 text-center">
-          <a 
-            href="#" 
+          <Link
+            to="/projects" 
             className="inline-flex items-center justify-center px-6 py-3 bg-white border border-nitte-blue/20 text-nitte-blue rounded-full font-medium hover:bg-nitte-blue hover:text-white transition-all duration-300"
           >
             View All Projects
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 ml-2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
