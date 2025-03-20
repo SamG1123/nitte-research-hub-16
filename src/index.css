@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +101,40 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-muted-foreground mb-12 max-w-3xl mx-auto;
+  }
+  
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-nitte-gold after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  
+  .timeline-slider::-webkit-slider-thumb {
+    @apply appearance-none w-6 h-6 bg-nitte-gold rounded-full cursor-pointer;
+  }
+  
+  .timeline-slider::-moz-range-thumb {
+    @apply w-6 h-6 bg-nitte-gold rounded-full cursor-pointer border-none;
+  }
+  
+  .timeline-slider {
+    @apply appearance-none w-full h-2 bg-gray-200 rounded-lg outline-none;
   }
 }
