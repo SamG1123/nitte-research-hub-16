@@ -33,7 +33,7 @@ export function Navbar() {
       <nav className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img src="/nmit.png" alt="Nitte R&D Club" className="h-12" /* Increased height from h-10 to h-12 */ />
+          <img src="/nmit.png" alt="Nitte R&D Club" className="h-24" /* Doubled size from h-12 to h-24 */ />
           <span className="font-display font-semibold text-lg text-nitte-blue hidden sm:inline-block">
             Nitte R&D Club
           </span>
@@ -50,8 +50,8 @@ export function Navbar() {
           <Link to="/#departments" className="text-gray-700 hover:text-nitte-blue transition-colors">
             Departments
           </Link>
-          <Link to="/#timeline" className="text-gray-700 hover:text-nitte-blue transition-colors">
-            Timeline
+          <Link to="/#gallery" className="text-gray-700 hover:text-nitte-blue transition-colors">
+            Gallery
           </Link>
           <Link to="/projects" className="text-gray-700 hover:text-nitte-blue transition-colors">
             Projects
@@ -109,8 +109,8 @@ export function Navbar() {
           <Link to="/#departments" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
             Departments
           </Link>
-          <Link to="/#timeline" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
-            Timeline
+          <Link to="/#gallery" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+            Gallery
           </Link>
           <Link to="/projects" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
             Projects

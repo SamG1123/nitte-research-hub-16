@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Departments } from "@/components/Departments";
-import { Timeline } from "@/components/Timeline";
+import { Gallery } from "@/components/Gallery";
 import { Projects } from "@/components/Projects";
 import { Apply } from "@/components/Apply";
 import { Footer } from "@/components/Footer";
@@ -58,7 +58,7 @@ const Index = () => {
         <div id="about"></div> {/* Anchor for smooth scrolling */}
         <About />
         <Departments />
-        <Timeline />
+        <Gallery />
         <Projects />
         <Apply />
       </main>
