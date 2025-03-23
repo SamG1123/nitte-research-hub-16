@@ -76,6 +76,7 @@ export default {
 			fontFamily: {
 				sans: ['Inter var', 'sans-serif'],
 				display: ['Playfair Display', 'Inter var', 'sans-serif'],
+				gotham: ['Montserrat', 'Inter var', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {

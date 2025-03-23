@@ -62,7 +62,7 @@ export function Hero() {
         <div className="md:w-1/2 text-left md:pr-12 mb-10 md:mb-0">
           <h1 
             ref={titleRef}
-            className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-nitte-blue opacity-0 transition-all duration-1000 delay-200"
+            className="text-5xl md:text-6xl lg:text-7xl font-gotham font-bold tracking-tight text-nitte-blue opacity-0 transition-all duration-1000 delay-200"
           >
             Innovate.<br />
             Research.<br />
@@ -71,7 +71,7 @@ export function Hero() {
           
           <p 
             ref={subtitleRef}
-            className="mt-6 text-xl md:text-2xl text-gray-600 max-w-2xl opacity-0 transition-all duration-1000 delay-500"
+            className="mt-6 text-xl md:text-2xl font-gotham text-gray-600 max-w-2xl opacity-0 transition-all duration-1000 delay-500"
           >
             Fostering innovation and research excellence at Nitte Mahalinga Adyanthaya Memorial Institute of Technology
           </p>
@@ -79,7 +79,7 @@ export function Hero() {
           <div className="mt-10 space-x-4 opacity-0 animate-fade-in animation-delay-700">
             <Button
               size="lg"
-              className="bg-nitte-blue hover:bg-nitte-blue/90 text-white rounded-full py-6 px-8 text-lg"
+              className="bg-nitte-blue hover:bg-nitte-blue/90 text-white rounded-full py-6 px-8 text-lg font-gotham"
             >
               Explore Projects
             </Button>
@@ -87,7 +87,7 @@ export function Hero() {
             <Button
               variant="outline"
               size="lg"
-              className="border-nitte-blue text-nitte-blue hover:bg-nitte-blue/10 rounded-full py-6 px-8 text-lg"
+              className="border-nitte-blue text-nitte-blue hover:bg-nitte-blue/10 rounded-full py-6 px-8 text-lg font-gotham"
             >
               Join Now
             </Button>
@@ -113,23 +113,23 @@ export function Hero() {
         className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto z-20 opacity-0 transition-all duration-1000 delay-700"
       >
         <div className="text-center p-6 glass-card rounded-xl backdrop-blur-sm">
-          <h3 className="text-4xl font-bold text-nitte-blue mb-2">40+</h3>
-          <p className="text-gray-600">Ongoing Projects</p>
+          <h3 className="text-4xl font-bold font-gotham text-nitte-blue mb-2">40+</h3>
+          <p className="text-gray-600 font-gotham">Ongoing Projects</p>
         </div>
         
         <div className="text-center p-6 glass-card rounded-xl backdrop-blur-sm">
-          <h3 className="text-4xl font-bold text-nitte-blue mb-2">12</h3>
-          <p className="text-gray-600">Departments</p>
+          <h3 className="text-4xl font-bold font-gotham text-nitte-blue mb-2">12</h3>
+          <p className="text-gray-600 font-gotham">Departments</p>
         </div>
         
         <div className="text-center p-6 glass-card rounded-xl backdrop-blur-sm">
-          <h3 className="text-4xl font-bold text-nitte-blue mb-2">200+</h3>
-          <p className="text-gray-600">Student Researchers</p>
+          <h3 className="text-4xl font-bold font-gotham text-nitte-blue mb-2">200+</h3>
+          <p className="text-gray-600 font-gotham">Student Researchers</p>
         </div>
         
         <div className="text-center p-6 glass-card rounded-xl backdrop-blur-sm">
-          <h3 className="text-4xl font-bold text-nitte-blue mb-2">25+</h3>
-          <p className="text-gray-600">Faculty Mentors</p>
+          <h3 className="text-4xl font-bold font-gotham text-nitte-blue mb-2">25+</h3>
+          <p className="text-gray-600 font-gotham">Faculty Mentors</p>
         </div>
       </div>
       

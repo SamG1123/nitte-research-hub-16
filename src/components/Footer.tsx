@@ -12,7 +12,7 @@ export function Footer() {
               alt="Nitte R&D Club Logo" 
               className="h-12 mb-4"
             />
-            <p className="text-gray-600 text-sm mb-4">
+            <p className="text-gray-600 text-sm mb-4 font-gotham">
               Fostering innovation and research excellence at NMIT
             </p>
             <div className="flex space-x-4">
@@ -35,7 +35,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
               Links
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-gotham">
               {['Home', 'About', 'Departments', 'Timeline', 'Projects', 'Apply'].map(item => (
                 <li key={item}>
                   <a 
@@ -53,14 +53,14 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
               Departments
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-gotham">
               {[
+                'Aeronautical',
+                'Artificial Intelligence & Data Science',
                 'Computer Science',
-                'AI & Data Science',
                 'Electronics & Communication',
                 'Mechanical',
-                'Civil',
-                'Electrical'
+                'Civil'
               ].map(item => (
                 <li key={item}>
                   <a 
@@ -78,7 +78,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
               Contact
             </h3>
-            <address className="not-italic text-gray-600">
+            <address className="not-italic text-gray-600 font-gotham">
               <p className="mb-3">Nitte Meenakshi Institute of Technology</p>
               <p className="mb-3">P.B.No.6429, Yelahanka</p>
               <p className="mb-3">Bangalore - 560064</p>
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
+        <div className="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500 font-gotham">
           <p>© {new Date().getFullYear()} Nitte R&D Club. All rights reserved.</p>
         </div>
       </div>
