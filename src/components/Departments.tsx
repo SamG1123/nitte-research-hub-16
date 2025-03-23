@@ -27,15 +27,18 @@ export function Departments() {
   }, []);
 
   const departments = [
-    "Computer Science & Engineering",
-    "Artificial Intelligence & Data Science",
-    "Information Science & Engineering",
-    "Electronics & Communication Engineering",
-    "Mechanical Engineering",
-    "Civil Engineering",
-    "Electrical & Electronics Engineering",
     "Aeronautical Engineering",
-    "Very-Large-Scale Integration"
+    "Artificial Intelligence & Data Science",
+    "Artificial Intelligence & Machine Learning",
+    "Civil Engineering",
+    "Computer Science & Engineering",
+    "Computer Science & Business Systems",
+    "Electrical & Electronics Engineering",
+    "Electronics & Communication Engineering",
+    "Electronics Engineering (VLSI)",
+    "Information Science & Engineering",
+    "Mechanical Engineering",
+    "Robotics & Artificial Intelligence"
   ];
 
   return (
