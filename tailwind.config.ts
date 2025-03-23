@@ -75,7 +75,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter var', 'sans-serif'],
-				display: ['SF Pro Display', 'Inter var', 'sans-serif'],
+				display: ['Playfair Display', 'Inter var', 'sans-serif'],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -134,6 +134,9 @@ export default {
 			},
 			backdropBlur: {
 				xs: '2px',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			}
 		}
 	},
