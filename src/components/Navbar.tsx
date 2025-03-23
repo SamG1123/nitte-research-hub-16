@@ -33,9 +33,9 @@ export function Navbar() {
       <nav className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img src="/nmit.png" alt="NMIT R&D Club" className="h-10" />
+          <img src="/nmit.png" alt="Nitte R&D Club" className="h-12" /* Increased height from h-10 to h-12 */ />
           <span className="font-display font-semibold text-lg text-nitte-blue hidden sm:inline-block">
-            NMIT R&D Club
+            Nitte R&D Club
           </span>
         </Link>
 

@@ -45,10 +45,17 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Background decoration */}
+      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full rounded-full bg-nitte-blue/5 blur-3xl transform rotate-12"></div>
+        <div className="absolute top-1/3 right-0 w-2/3 h-1/3 rounded-full bg-nitte-gold/5 blur-3xl"></div>
+      </div>
+      
       <Navbar />
       <main>
         <Hero />
+        <div id="about"></div> {/* Anchor for smooth scrolling */}
         <About />
         <Departments />
         <Timeline />
