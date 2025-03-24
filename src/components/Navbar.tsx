@@ -24,6 +24,24 @@ export function Navbar() {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Handle smooth scrolling for anchor links
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    // Only handle this on the home page
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 80, // Account for header height
+          behavior: 'smooth'
+        });
+
+        // Update URL with the hash
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -33,7 +51,7 @@ export function Navbar() {
       <nav className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img src="/nmit.png" alt="Nitte R&D Club" className="h-24" /* Doubled size from h-12 to h-24 */ />
+          <img src="/nmit.png" alt="Nitte R&D Club" className="h-24" />
           <span className="font-display font-semibold text-lg text-nitte-blue hidden sm:inline-block">
             Nitte R&D Club
           </span>
@@ -41,24 +59,46 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-gray-700 hover:text-nitte-blue transition-colors">
+          <Link 
+            to="/" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors"
+          >
             Home
           </Link>
-          <Link to="/#about" className="text-gray-700 hover:text-nitte-blue transition-colors">
+          <a 
+            href="#about" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors"
+            onClick={(e) => handleAnchorClick(e, 'introduction')}
+          >
             About
-          </Link>
-          <Link to="/#departments" className="text-gray-700 hover:text-nitte-blue transition-colors">
+          </a>
+          <a 
+            href="#departments" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors"
+            onClick={(e) => handleAnchorClick(e, 'departments')}
+          >
             Departments
-          </Link>
-          <Link to="/#gallery" className="text-gray-700 hover:text-nitte-blue transition-colors">
+          </a>
+          <a 
+            href="#gallery" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors"
+            onClick={(e) => handleAnchorClick(e, 'gallery')}
+          >
             Gallery
-          </Link>
-          <Link to="/projects" className="text-gray-700 hover:text-nitte-blue transition-colors">
+          </a>
+          <Link 
+            to="/projects" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors"
+          >
             Projects
           </Link>
-          <Link to="/#apply" className="text-gray-700 hover:text-nitte-blue transition-colors">
+          <a 
+            href="#apply" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors"
+            onClick={(e) => handleAnchorClick(e, 'apply')}
+          >
             Apply
-          </Link>
+          </a>
           
           {isAuthenticated ? (
             <Link to="/dashboard">
@@ -100,24 +140,46 @@ export function Navbar() {
         }`}
       >
         <div className="container mx-auto px-4 flex flex-col space-y-4">
-          <Link to="/" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+          <Link 
+            to="/" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors py-2"
+          >
             Home
           </Link>
-          <Link to="/#about" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+          <a 
+            href="#about" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors py-2"
+            onClick={(e) => handleAnchorClick(e, 'introduction')}
+          >
             About
-          </Link>
-          <Link to="/#departments" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+          </a>
+          <a 
+            href="#departments" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors py-2"
+            onClick={(e) => handleAnchorClick(e, 'departments')}
+          >
             Departments
-          </Link>
-          <Link to="/#gallery" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+          </a>
+          <a 
+            href="#gallery" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors py-2"
+            onClick={(e) => handleAnchorClick(e, 'gallery')}
+          >
             Gallery
-          </Link>
-          <Link to="/projects" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+          </a>
+          <Link 
+            to="/projects" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors py-2"
+          >
             Projects
           </Link>
-          <Link to="/#apply" className="text-gray-700 hover:text-nitte-blue transition-colors py-2">
+          <a 
+            href="#apply" 
+            className="text-gray-700 hover:text-nitte-blue transition-colors py-2"
+            onClick={(e) => handleAnchorClick(e, 'apply')}
+          >
             Apply
-          </Link>
+          </a>
           
           {isAuthenticated ? (
             <Link to="/dashboard" className="py-2">

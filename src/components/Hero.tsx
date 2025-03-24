@@ -1,6 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export function Hero() {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -39,6 +40,30 @@ export function Hero() {
       if (statsElement) observer.unobserve(statsElement);
     };
   }, []);
+
+  // Smooth scroll to projects section
+  const scrollToProjects = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('projects');
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Smooth scroll to apply section
+  const scrollToApply = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('apply');
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center relative pt-20 pb-16 px-4 overflow-hidden">
@@ -80,6 +105,7 @@ export function Hero() {
             <Button
               size="lg"
               className="bg-nitte-blue hover:bg-nitte-blue/90 text-white rounded-full py-6 px-8 text-lg font-gotham"
+              onClick={scrollToProjects}
             >
               Explore Projects
             </Button>
@@ -88,6 +114,7 @@ export function Hero() {
               variant="outline"
               size="lg"
               className="border-nitte-blue text-nitte-blue hover:bg-nitte-blue/10 rounded-full py-6 px-8 text-lg font-gotham"
+              onClick={scrollToApply}
             >
               Join Now
             </Button>
@@ -138,6 +165,16 @@ export function Hero() {
         <a 
           href="#introduction" 
           className="inline-flex items-center justify-center text-nitte-blue"
+          onClick={(e) => {
+            e.preventDefault();
+            const element = document.getElementById('introduction');
+            if (element) {
+              window.scrollTo({
+                top: element.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          }}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-10 h-10">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
