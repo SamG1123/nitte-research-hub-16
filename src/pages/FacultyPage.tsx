@@ -74,23 +74,48 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
     faculty: [
       {
         id: "aids-1",
-        name: "Dr. Vadivel R",
-        title: "Professor",
+        name: "Dr. R Vadivel",
+        title: "Associate Professor",
         image: "/lovable-uploads/f88be75b-7f30-405c-8477-2c05a23a25d9.png",
-        specialization: ["Machine Learning", "Big Data Analytics", "AI Ethics"],
-        email: "vadivel.r@example.edu",
-        education: "Ph.D in Computer Science, Stanford University",
-        research: ["Explainable AI", "Neural Networks", "Decision Support Systems"]
+        specialization: ["Cloud Computing", "Machine Learning", "Data Science"],
+        email: "vadivel.r@nmit.ac.in",
+        education: "B.E. (CSE), M.E. (CSE), Ph.D (CSE)",
+        research: ["Cloud Computing", "Machine Learning", "Data Science"],
+        fullInfo: {
+          joiningDate: "2024-08-09",
+          experience: "15+ years",
+          qualification: "B.E. (CSE), M.E. (CSE), Ph.D (CSE)",
+          areaOfInterest: [
+            "Cloud Computing",
+            "Machine Learning", 
+            "Data Science"
+          ],
+          orcid: "https://orcid.org/0000-0001-5351-2518?lang=en",
+          googleScholar: "https://tinyurl.com/4ws2muxt"
+        }
       },
       {
         id: "aids-2",
         name: "Dr. Meenakshi",
-        title: "Associate Professor",
+        title: "Assistant Professor",
         image: "/lovable-uploads/46047831-3004-4233-8152-b3b3d010fed6.png",
-        specialization: ["Natural Language Processing", "Deep Learning", "Computer Vision"],
-        email: "meenakshi@example.edu",
-        education: "Ph.D in Data Science, MIT",
-        research: ["Sentiment Analysis", "Image Recognition", "Transformer Models"]
+        specialization: ["Deep Learning", "Machine Learning", "Cyber Security"],
+        email: "meenakshi.rao.kateel@nmit.ac.in",
+        education: "B.E, M.Tech (CNE), PhD (CSE)",
+        research: ["Deep Learning", "Machine Learning", "Cyber Security"],
+        fullInfo: {
+          joiningDate: "2023-07-11",
+          experience: "18+ years",
+          qualification: "B.E, M.Tech (CNE), PhD (CSE)",
+          areaOfInterest: [
+            "Deep Learning",
+            "Machine Learning",
+            "Cyber Security"
+          ],
+          linkedin: "https://www.linkedin.com/in/dr-meenakshi-rao987a28151/",
+          orcid: "https://orcid.org/0000-0002-2214-0464",
+          googleScholar: "https://scholar.google.com/citations?user=-UnpKJAAAAAJ&hl=en&authuser=2"
+        }
       }
     ]
   },
