@@ -1,10 +1,14 @@
+
 import { useParams, Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink, Calendar, BookOpen, Award, Briefcase, Mail, Linkedin } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Separator } from "@/components/ui/separator";
 
 // Faculty data structure
 type Faculty = {
@@ -16,6 +20,16 @@ type Faculty = {
   email: string;
   education: string;
   research: string[];
+  fullInfo?: {
+    joiningDate?: string;
+    experience?: string;
+    qualification?: string;
+    areaOfInterest?: string[];
+    linkedin?: string;
+    orcid?: string;
+    googleScholar?: string;
+    projects?: string[];
+  };
 };
 
 // Department faculty data
@@ -86,22 +100,51 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
       {
         id: "aiml-1",
         name: "Dr. Zabiha Khan",
-        title: "Professor",
+        title: "Associate Professor",
         image: "/lovable-uploads/19a0befa-dd67-4632-a3b9-96634eb147ac.png",
-        specialization: ["Reinforcement Learning", "Neural Networks", "Cognitive Computing"],
-        email: "zabiha.khan@example.edu",
-        education: "Ph.D in Computer Science, Carnegie Mellon University",
-        research: ["Transfer Learning", "Generative AI", "Multi-agent Systems"]
+        specialization: ["Software Engineering", "AI & ML", "Data Science & Analytics"],
+        email: "zabiha.khan@nmit.ac.in",
+        education: "Ph.D in Computer Science",
+        research: ["Biomedical Engineering", "Image Processing", "Data Analytics"],
+        fullInfo: {
+          joiningDate: "2023-10-18",
+          experience: "15+ years",
+          qualification: "BE, MTech, PhD",
+          areaOfInterest: [
+            "Software Engineering",
+            "Artificial Intelligence and Machine Learning",
+            "Data Science & Data Analytics",
+            "Biomedical Engineering",
+            "Image Processing"
+          ],
+          projects: ["2 Projects from KITS, Govt. of Karnataka"],
+          orcid: "https://orcid.org/0000-0002-4574-0315",
+          googleScholar: "https://scholar.google.com/citations?hl=en&user=4aWdcRMAAAAJ",
+          linkedin: "https://www.linkedin.com/in/dr-zabiha-khan-40b60429b/"
+        }
       },
       {
         id: "aiml-2",
         name: "Ms. Ladly Patel",
-        title: "Associate Professor",
+        title: "Assistant Professor",
         image: "/lovable-uploads/bc90a6f0-1610-4210-aea4-6e1557cbd28a.png",
-        specialization: ["Computer Vision", "Unsupervised Learning", "Robotics"],
-        email: "ladly.patel@example.edu",
-        education: "Ph.D in Machine Learning, ETH Zurich",
-        research: ["Object Detection", "Self-supervised Learning", "Ethical AI"]
+        specialization: ["Machine Learning", "Deep Learning", "Computer Vision"],
+        email: "ladly.patel@nmit.ac.in",
+        education: "BE, MTech (PhD Pursuing)",
+        research: ["Big Data Analytics", "Computer Vision", "AI Applications"],
+        fullInfo: {
+          joiningDate: "2024-11-19",
+          experience: "5+ years",
+          qualification: "BE, MTech (PhD)",
+          areaOfInterest: [
+            "Machine Learning", 
+            "Deep Learning", 
+            "Artificial Intelligence", 
+            "Big Data", 
+            "Computer Vision"
+          ],
+          linkedin: "https://in.linkedin.com/in/ladly-patel-543136120"
+        }
       }
     ]
   },
@@ -405,48 +448,207 @@ export default function FacultyPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {departmentData.faculty.map((faculty) => (
-            <Card key={faculty.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={faculty.image} 
-                  alt={faculty.name} 
-                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-nitte-blue">{faculty.name}</CardTitle>
-                <CardDescription>{faculty.title}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-medium text-gray-500 mb-1">Specialization</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {faculty.specialization.map((spec, index) => (
-                      <Badge key={index} variant="outline" className="bg-gray-50">
-                        {spec}
-                      </Badge>
-                    ))}
+            <Dialog key={faculty.id}>
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={faculty.image} 
+                    alt={faculty.name} 
+                    className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-nitte-blue">{faculty.name}</CardTitle>
+                  <CardDescription>{faculty.title}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-500 mb-1">Specialization</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {faculty.specialization.map((spec, index) => (
+                        <Badge key={index} variant="outline" className="bg-gray-50">
+                          {spec}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <h4 className="text-sm font-medium text-gray-500 mb-1">Education</h4>
-                  <p className="text-sm text-gray-700">{faculty.education}</p>
-                </div>
-                <div>
-                  <h4 className="text-sm font-medium text-gray-500 mb-1">Research Areas</h4>
-                  <ul className="text-sm text-gray-700 space-y-1 list-disc pl-5">
-                    {faculty.research.map((area, index) => (
-                      <li key={index}>{area}</li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-              <CardFooter className="border-t pt-4">
-                <Button variant="outline" className="w-full">
-                  Contact: {faculty.email}
-                </Button>
-              </CardFooter>
-            </Card>
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-500 mb-1">Education</h4>
+                    <p className="text-sm text-gray-700">{faculty.education}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-500 mb-1">Research Areas</h4>
+                    <ul className="text-sm text-gray-700 space-y-1 list-disc pl-5">
+                      {faculty.research.map((area, index) => (
+                        <li key={index}>{area}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t pt-4 flex justify-between items-center">
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Button variant="ghost" className="text-nitte-blue">
+                        <Mail className="mr-2 h-4 w-4" />
+                        Contact
+                      </Button>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-auto">
+                      <div className="flex flex-col space-y-1">
+                        <p className="text-sm font-medium">Email</p>
+                        <p className="text-sm text-muted-foreground">{faculty.email}</p>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+
+                  {faculty.fullInfo && (
+                    <DialogTrigger asChild>
+                      <Button variant="outline">
+                        View Full Profile
+                      </Button>
+                    </DialogTrigger>
+                  )}
+                </CardFooter>
+              </Card>
+
+              {faculty.fullInfo && (
+                <DialogContent className="sm:max-w-[600px]">
+                  <DialogHeader>
+                    <DialogTitle className="text-xl">{faculty.name}</DialogTitle>
+                    <DialogDescription>{faculty.title}</DialogDescription>
+                  </DialogHeader>
+                  
+                  <div className="grid gap-6 py-4">
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src={faculty.image} 
+                        alt={faculty.name} 
+                        className="w-24 h-24 rounded-full object-cover border-2 border-gray-100"
+                      />
+                      <div>
+                        <h3 className="font-medium">{faculty.name}</h3>
+                        <p className="text-sm text-gray-500">{faculty.title}</p>
+                        <p className="text-sm flex items-center mt-1">
+                          <Mail className="h-3 w-3 mr-1" />
+                          {faculty.email}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <Separator />
+                    
+                    <div className="grid gap-4">
+                      {faculty.fullInfo.qualification && (
+                        <div className="flex gap-3">
+                          <BookOpen className="h-5 w-5 text-nitte-blue flex-shrink-0" />
+                          <div>
+                            <h4 className="text-sm font-medium">Qualification</h4>
+                            <p className="text-sm text-gray-600">{faculty.fullInfo.qualification}</p>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {faculty.fullInfo.experience && (
+                        <div className="flex gap-3">
+                          <Briefcase className="h-5 w-5 text-nitte-blue flex-shrink-0" />
+                          <div>
+                            <h4 className="text-sm font-medium">Experience</h4>
+                            <p className="text-sm text-gray-600">{faculty.fullInfo.experience}</p>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {faculty.fullInfo.joiningDate && (
+                        <div className="flex gap-3">
+                          <Calendar className="h-5 w-5 text-nitte-blue flex-shrink-0" />
+                          <div>
+                            <h4 className="text-sm font-medium">Joining Date</h4>
+                            <p className="text-sm text-gray-600">{faculty.fullInfo.joiningDate}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {faculty.fullInfo.areaOfInterest && faculty.fullInfo.areaOfInterest.length > 0 && (
+                      <>
+                        <Separator />
+                        <div>
+                          <h4 className="text-sm font-medium mb-2">Areas of Interest</h4>
+                          <ul className="grid gap-1.5 pl-5 list-disc text-sm text-gray-600">
+                            {faculty.fullInfo.areaOfInterest.map((area, index) => (
+                              <li key={index}>{area}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    )}
+                    
+                    {faculty.fullInfo.projects && faculty.fullInfo.projects.length > 0 && (
+                      <>
+                        <Separator />
+                        <div>
+                          <h4 className="text-sm font-medium mb-2">Research Projects</h4>
+                          <ul className="grid gap-1.5 pl-5 list-disc text-sm text-gray-600">
+                            {faculty.fullInfo.projects.map((project, index) => (
+                              <li key={index}>{project}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    )}
+                    
+                    {(faculty.fullInfo.linkedin || faculty.fullInfo.orcid || faculty.fullInfo.googleScholar) && (
+                      <>
+                        <Separator />
+                        <div>
+                          <h4 className="text-sm font-medium mb-2">Professional Profiles</h4>
+                          <div className="flex flex-wrap gap-3">
+                            {faculty.fullInfo.linkedin && (
+                              <a 
+                                href={faculty.fullInfo.linkedin} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-sm text-nitte-blue hover:underline"
+                              >
+                                <Linkedin className="h-4 w-4 mr-1" />
+                                LinkedIn
+                                <ExternalLink className="h-3 w-3 ml-1" />
+                              </a>
+                            )}
+                            
+                            {faculty.fullInfo.orcid && (
+                              <a 
+                                href={faculty.fullInfo.orcid} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-sm text-nitte-blue hover:underline"
+                              >
+                                <Award className="h-4 w-4 mr-1" />
+                                ORCID
+                                <ExternalLink className="h-3 w-3 ml-1" />
+                              </a>
+                            )}
+                            
+                            {faculty.fullInfo.googleScholar && (
+                              <a 
+                                href={faculty.fullInfo.googleScholar} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-sm text-nitte-blue hover:underline"
+                              >
+                                <BookOpen className="h-4 w-4 mr-1" />
+                                Google Scholar
+                                <ExternalLink className="h-3 w-3 ml-1" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </DialogContent>
+              )}
+            </Dialog>
           ))}
         </div>
       </div>
