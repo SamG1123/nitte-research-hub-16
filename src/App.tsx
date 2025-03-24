@@ -15,6 +15,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProfilePage from "./pages/ProfilePage";
+import FacultyPage from "./pages/FacultyPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/faculty/:department" element={<FacultyPage />} />
             
             {/* Protected routes (require authentication) */}
             <Route element={<ProtectedRoute />}>

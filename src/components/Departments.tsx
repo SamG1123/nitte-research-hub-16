@@ -1,5 +1,6 @@
 
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Departments() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,18 +28,54 @@ export function Departments() {
   }, []);
 
   const departments = [
-    "Aeronautical Engineering",
-    "Artificial Intelligence & Data Science",
-    "Artificial Intelligence & Machine Learning",
-    "Civil Engineering",
-    "Computer Science & Engineering",
-    "Computer Science & Business Systems",
-    "Electrical & Electronics Engineering",
-    "Electronics & Communication Engineering",
-    "Electronics Engineering (VLSI)",
-    "Information Science & Engineering",
-    "Mechanical Engineering",
-    "Robotics & Artificial Intelligence"
+    {
+      name: "Aeronautical Engineering",
+      slug: "aeronautical-engineering"
+    },
+    {
+      name: "Artificial Intelligence & Data Science",
+      slug: "artificial-intelligence-data-science"
+    },
+    {
+      name: "Artificial Intelligence & Machine Learning",
+      slug: "artificial-intelligence-machine-learning"
+    },
+    {
+      name: "Civil Engineering",
+      slug: "civil-engineering"
+    },
+    {
+      name: "Computer Science & Engineering",
+      slug: "computer-science-engineering"
+    },
+    {
+      name: "Computer Science & Business Systems",
+      slug: "computer-science-business-systems"
+    },
+    {
+      name: "Electrical & Electronics Engineering",
+      slug: "electrical-electronics-engineering"
+    },
+    {
+      name: "Electronics & Communication Engineering",
+      slug: "electronics-communication-engineering"
+    },
+    {
+      name: "Electronics Engineering (VLSI)",
+      slug: "electronics-engineering-vlsi"
+    },
+    {
+      name: "Information Science & Engineering",
+      slug: "information-science-engineering"
+    },
+    {
+      name: "Mechanical Engineering",
+      slug: "mechanical-engineering"
+    },
+    {
+      name: "Robotics & Artificial Intelligence",
+      slug: "robotics-artificial-intelligence"
+    }
   ];
 
   return (
@@ -69,15 +106,15 @@ export function Departments() {
               <div className="absolute inset-0 bg-gradient-to-br from-nitte-blue/5 to-nitte-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               <div className="relative z-10 p-6">
-                <h3 className="text-lg font-semibold text-nitte-blue">{dept}</h3>
+                <h3 className="text-lg font-semibold text-nitte-blue">{dept.name}</h3>
                 
                 <div className="mt-4 flex justify-between items-center">
-                  <a 
-                    href="#" 
+                  <Link 
+                    to={`/faculty/${dept.slug}`}
                     className="text-nitte-blue font-medium text-sm opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                   >
-                    Explore
-                  </a>
+                    Meet Faculty
+                  </Link>
                   
                   <div className="w-8 h-8 flex items-center justify-center rounded-full bg-nitte-blue/10 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-nitte-blue">
