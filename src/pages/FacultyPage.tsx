@@ -85,11 +85,11 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
     faculty: [
       {
         id: "aiml-1",
-        name: "Dr. Zabiha Khan ",
+        name: "Dr. Zabiha Khan",
         title: "Professor",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+        image: "/lovable-uploads/19a0befa-dd67-4632-a3b9-96634eb147ac.png",
         specialization: ["Reinforcement Learning", "Neural Networks", "Cognitive Computing"],
-        email: "vikram.joshi@example.edu",
+        email: "zabiha.khan@example.edu",
         education: "Ph.D in Computer Science, Carnegie Mellon University",
         research: ["Transfer Learning", "Generative AI", "Multi-agent Systems"]
       },
@@ -97,9 +97,9 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
         id: "aiml-2",
         name: "Ms. Ladly Patel",
         title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBwcm9mZXNzb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+        image: "/lovable-uploads/bc90a6f0-1610-4210-aea4-6e1557cbd28a.png",
         specialization: ["Computer Vision", "Unsupervised Learning", "Robotics"],
-        email: "anjali.kumar@example.edu",
+        email: "ladly.patel@example.edu",
         education: "Ph.D in Machine Learning, ETH Zurich",
         research: ["Object Detection", "Self-supervised Learning", "Ethical AI"]
       }
