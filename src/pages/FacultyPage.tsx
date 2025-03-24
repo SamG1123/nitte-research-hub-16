@@ -139,7 +139,7 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
       
       {
         id: "cse-1",
-        name: "Dr. Neha Kapoor",
+        name: "Dr. Avinash L ",
         title: "Associate Professor",
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBwcm9mZXNzb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
         specialization: ["Software Engineering", "Software Testing", "DevOps"],
@@ -149,7 +149,7 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
       },
       {
         id: "cse-2",
-        name: "Dr. Karthik Iyer",
+        name: "Dr. Avinash L ",
         title: "Assistant Professor",
         image: "https://images.unsplash.com/photo-1587723958656-ee042cc217a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
         specialization: ["Algorithms", "Theory of Computation", "Compilers"],
