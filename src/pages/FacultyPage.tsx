@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -61,11 +60,11 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
     faculty: [
       {
         id: "aids-1",
-        name: "Dr. Dr. Vadivel R",
+        name: "Dr. Vadivel R",
         title: "Professor",
-        image: "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        image: "/lovable-uploads/f88be75b-7f30-405c-8477-2c05a23a25d9.png",
         specialization: ["Machine Learning", "Big Data Analytics", "AI Ethics"],
-        email: "sunita.patel@example.edu",
+        email: "vadivel.r@example.edu",
         education: "Ph.D in Computer Science, Stanford University",
         research: ["Explainable AI", "Neural Networks", "Decision Support Systems"]
       },
@@ -73,9 +72,9 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
         id: "aids-2",
         name: "Dr. Meenakshi",
         title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        image: "/lovable-uploads/46047831-3004-4233-8152-b3b3d010fed6.png",
         specialization: ["Natural Language Processing", "Deep Learning", "Computer Vision"],
-        email: "rahul.mehta@example.edu",
+        email: "meenakshi@example.edu",
         education: "Ph.D in Data Science, MIT",
         research: ["Sentiment Analysis", "Image Recognition", "Transformer Models"]
       }
@@ -109,7 +108,6 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
   "civil-engineering": {
     name: "Civil Engineering",
     faculty: [
-      
       {
         id: "civil-1",
         name: "Dr. Sumaraj ",
@@ -132,11 +130,9 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
       }
     ]
   },
-  // Additional departments with similar faculty data structures
   "computer-science-engineering": {
     name: "Computer Science & Engineering",
     faculty: [
-      
       {
         id: "cse-1",
         name: "Dr. Avinash L ",
