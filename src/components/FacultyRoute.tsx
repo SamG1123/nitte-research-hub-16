@@ -13,7 +13,6 @@ export function FacultyRoute() {
     );
   }
 
-  // Make sure to call isFaculty as a function
   if (!isFaculty()) {
     // Redirect to dashboard with access denied message
     return <Navigate to="/dashboard" replace />;
