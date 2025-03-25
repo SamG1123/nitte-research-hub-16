@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Nitte R&D Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-300">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
+      <!-- Logo and navigation (same as other pages) -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="/nmit.png" alt="Nitte R&D Club" class="h-24">
+        <span class="font-display font-semibold text-lg text-nitte-blue hidden sm:inline-block">
+          Nitte R&D Club
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-nitte-blue transition-colors">Home</a>
+        <a href="index.html#introduction" class="text-gray-700 hover:text-nitte-blue transition-colors">About</a>
+        <a href="index.html#departments" class="text-gray-700 hover:text-nitte-blue transition-colors">Departments</a>
+        <a href="index.html#gallery" class="text-gray-700 hover:text-nitte-blue transition-colors">Gallery</a>
+        <a href="projects.html" class="text-gray-700 hover:text-nitte-blue transition-colors">Projects</a>
+        <a href="index.html#apply" class="text-gray-700 hover:text-nitte-blue transition-colors">Apply</a>
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden max-h-0">
+      <div class="container mx-auto px-4 flex flex-col space-y-4 py-4">
+        <a href="index.html" class="text-gray-700 hover:text-nitte-blue">Home</a>
+        <a href="index.html#introduction" class="text-gray-700 hover:text-nitte-blue">About</a>
+        <a href="index.html#departments" class="text-gray-700 hover:text-nitte-blue">Departments</a>
+        <a href="index.html#gallery" class="text-gray-700 hover:text-nitte-blue">Gallery</a>
+        <a href="projects.html" class="text-gray-700 hover:text-nitte-blue">Projects</a>
+        <a href="index.html#apply" class="text-gray-700 hover:text-nitte-blue">Apply</a>
+        <a href="login.html" class="text-gray-700 hover:text-nitte-blue font-medium">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 pb-12">
+    <section class="py-12 px-4 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <span class="inline-flex items-center justify-center px-3 py-1 bg-nitte-blue/10 text-nitte-blue text-sm font-medium rounded-full mb-6">
+            Projects
+          </span>
+          <h1 class="section-title text-nitte-blue">
+            Innovative Research Projects
+          </h1>
+          <p class="section-subtitle">
+            Explore cutting-edge research and development initiatives from our students and faculty
+          </p>
+        </div>
+
+        <!-- Filters -->
+        <div class="mb-8 flex flex-wrap gap-3 justify-center">
+          <button class="filter-button active" data-filter="all">All Projects</button>
+          <button class="filter-button" data-filter="ongoing">Ongoing</button>
+          <button class="filter-button" data-filter="completed">Completed</button>
+          <button class="filter-button" data-filter="computer-science">Computer Science</button>
+          <button class="filter-button" data-filter="electronics">Electronics</button>
+          <button class="filter-button" data-filter="mechanical">Mechanical</button>
+          <button class="filter-button" data-filter="civil">Civil</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+          <!-- Projects will be dynamically inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 py-12 px-4">
+    <!-- Footer (same as other pages) -->
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Column 1: Logo and social links -->
+        <div class="col-span-1 md:col-span-1">
+          <img src="/rnd.png" alt="Nitte R&D Club Logo" class="h-12 mb-4"/>
+          <p class="text-gray-600 text-sm mb-4 font-gotham">
+            Fostering innovation and research excellence at NMIT
+          </p>
+          <div class="flex space-x-4">
+            <!-- Social links -->
+          </div>
+        </div>
+        
+        <!-- Column 2: Links -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
+            Links
+          </h3>
+          <ul class="space-y-3 font-gotham">
+            <li><a href="index.html" class="text-gray-600 hover:text-nitte-blue transition-colors duration-300">Home</a></li>
+            <li><a href="index.html#introduction" class="text-gray-600 hover:text-nitte-blue transition-colors duration-300">About</a></li>
+            <li><a href="index.html#departments" class="text-gray-600 hover:text-nitte-blue transition-colors duration-300">Departments</a></li>
+            <li><a href="index.html#gallery" class="text-gray-600 hover:text-nitte-blue transition-colors duration-300">Gallery</a></li>
+            <li><a href="projects.html" class="text-gray-600 hover:text-nitte-blue transition-colors duration-300">Projects</a></li>
+            <li><a href="index.html#apply" class="text-gray-600 hover:text-nitte-blue transition-colors duration-300">Apply</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3: Departments -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
+            Departments
+          </h3>
+          <ul class="space-y-3 font-gotham" id="footer-departments">
+            <!-- Footer departments will be dynamically inserted here by JavaScript -->
+          </ul>
+        </div>
+        
+        <!-- Column 4: Contact -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">
+            Contact
+          </h3>
+          <address class="not-italic text-gray-600 font-gotham">
+            <p class="mb-3">Nitte Meenakshi Institute of Technology</p>
+            <p class="mb-3">P.B.No.6429, Yelahanka</p>
+            <p class="mb-3">Bangalore - 560064</p>
+            <p class="mb-3">
+              <span class="font-medium">Email:</span> rnd@nmit.ac.in
+            </p>
+            <p>
+              <span class="font-medium">Phone:</span> +91 80 2216 7890
+            </p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500 font-gotham">
+        <p>© <span id="current-year"></span> Nitte R&D Club. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

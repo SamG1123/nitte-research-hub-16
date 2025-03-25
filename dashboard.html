@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Nitte R&D Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Authentication check
+    document.addEventListener('DOMContentLoaded', function() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (!user) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</head>
+<body>
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-300">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
+      <!-- Logo and navigation -->
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="/nmit.png" alt="Nitte R&D Club" class="h-24">
+        <span class="font-display font-semibold text-lg text-nitte-blue hidden sm:inline-block">
+          Nitte R&D Club
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-nitte-blue transition-colors">Home</a>
+        <a href="dashboard.html" class="text-gray-700 hover:text-nitte-blue transition-colors">Dashboard</a>
+        <a href="profile.html" class="text-gray-700 hover:text-nitte-blue transition-colors">Profile</a>
+        <button id="logout-btn" class="btn btn-outline btn-sm">Sign Out</button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden max-h-0">
+      <div class="container mx-auto px-4 flex flex-col space-y-4 py-4">
+        <a href="index.html" class="text-gray-700 hover:text-nitte-blue">Home</a>
+        <a href="dashboard.html" class="text-gray-700 hover:text-nitte-blue">Dashboard</a>
+        <a href="profile.html" class="text-gray-700 hover:text-nitte-blue">Profile</a>
+        <button id="mobile-logout-btn" class="text-gray-700 hover:text-nitte-blue font-medium">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 pb-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex items-center justify-between mb-8">
+        <h1 class="text-3xl font-bold text-nitte-blue" id="welcome-message">Welcome, User</h1>
+        <p class="text-sm bg-nitte-blue/10 text-nitte-blue py-1 px-3 rounded-full" id="user-role">Member</p>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Quick Stats -->
+        <div class="md:col-span-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-gray-500 text-sm">My Projects</h3>
+                <span class="bg-nitte-blue/10 text-nitte-blue w-8 h-8 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                </span>
+              </div>
+              <p class="text-2xl font-bold">3</p>
+              <p class="text-gray-500 text-sm mt-1">2 ongoing, 1 completed</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-gray-500 text-sm">Publications</h3>
+                <span class="bg-nitte-gold/10 text-nitte-gold w-8 h-8 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </span>
+              </div>
+              <p class="text-2xl font-bold">2</p>
+              <p class="text-gray-500 text-sm mt-1">1 journal, 1 conference</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-gray-500 text-sm">Team Members</h3>
+                <span class="bg-green-100 text-green-800 w-8 h-8 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </span>
+              </div>
+              <p class="text-2xl font-bold">8</p>
+              <p class="text-gray-500 text-sm mt-1">Across all projects</p>
+            </div>
+          </div>
+
+          <!-- Current Projects -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
+            <h2 class="text-xl font-semibold text-nitte-blue mb-4">My Projects</h2>
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="text-left py-3 px-2 text-sm font-medium text-gray-500">Project</th>
+                    <th class="text-left py-3 px-2 text-sm font-medium text-gray-500">Status</th>
+                    <th class="text-left py-3 px-2 text-sm font-medium text-gray-500">Progress</th>
+                    <th class="text-left py-3 px-2 text-sm font-medium text-gray-500">Team</th>
+                    <th class="text-left py-3 px-2 text-sm font-medium text-gray-500">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-100">
+                    <td class="py-3 px-2">
+                      <p class="font-medium">Smart Energy Monitoring System</p>
+                      <p class="text-sm text-gray-500">Electrical Engineering</p>
+                    </td>
+                    <td class="py-3 px-2">
+                      <span class="inline-block px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Ongoing</span>
+                    </td>
+                    <td class="py-3 px-2">
+                      <div class="flex items-center">
+                        <div class="w-full h-2 bg-gray-200 rounded-full mr-2 max-w-[100px]">
+                          <div class="h-full bg-nitte-blue rounded-full" style="width: 65%"></div>
+                        </div>
+                        <span class="text-sm text-gray-500">65%</span>
+                      </div>
+                    </td>
+                    <td class="py-3 px-2">
+                      <div class="flex -space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">A</div>
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">S</div>
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">R</div>
+                      </div>
+                    </td>
+                    <td class="py-3 px-2">
+                      <a href="project-detail.html?id=1" class="text-nitte-blue text-sm hover:underline">View</a>
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-100">
+                    <td class="py-3 px-2">
+                      <p class="font-medium">AI-Based Medical Diagnosis Tool</p>
+                      <p class="text-sm text-gray-500">Computer Science</p>
+                    </td>
+                    <td class="py-3 px-2">
+                      <span class="inline-block px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Ongoing</span>
+                    </td>
+                    <td class="py-3 px-2">
+                      <div class="flex items-center">
+                        <div class="w-full h-2 bg-gray-200 rounded-full mr-2 max-w-[100px]">
+                          <div class="h-full bg-nitte-blue rounded-full" style="width: 80%"></div>
+                        </div>
+                        <span class="text-sm text-gray-500">80%</span>
+                      </div>
+                    </td>
+                    <td class="py-3 px-2">
+                      <div class="flex -space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">N</div>
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">V</div>
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">+2</div>
+                      </div>
+                    </td>
+                    <td class="py-3 px-2">
+                      <a href="project-detail.html?id=2" class="text-nitte-blue text-sm hover:underline">View</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-2">
+                      <p class="font-medium">Sustainable Construction Materials</p>
+                      <p class="text-sm text-gray-500">Civil Engineering</p>
+                    </td>
+                    <td class="py-3 px-2">
+                      <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Completed</span>
+                    </td>
+                    <td class="py-3 px-2">
+                      <div class="flex items-center">
+                        <div class="w-full h-2 bg-gray-200 rounded-full mr-2 max-w-[100px]">
+                          <div class="h-full bg-nitte-blue rounded-full" style="width: 100%"></div>
+                        </div>
+                        <span class="text-sm text-gray-500">100%</span>
+                      </div>
+                    </td>
+                    <td class="py-3 px-2">
+                      <div class="flex -space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">M</div>
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">P</div>
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-600 border border-white">K</div>
+                      </div>
+                    </td>
+                    <td class="py-3 px-2">
+                      <a href="project-detail.html?id=4" class="text-nitte-blue text-sm hover:underline">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recent Activities -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h2 class="text-xl font-semibold text-nitte-blue mb-4">Recent Activities</h2>
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <p class="font-medium">New milestone completed</p>
+                    <span class="text-gray-500 text-xs">Today, 10:30 AM</span>
+                  </div>
+                  <p class="text-gray-600 text-sm">Prototype Development milestone for AI-Based Medical Diagnosis Tool has been completed.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <p class="font-medium">Report submitted</p>
+                    <span class="text-gray-500 text-xs">Yesterday, 4:45 PM</span>
+                  </div>
+                  <p class="text-gray-600 text-sm">Quarterly progress report for Smart Energy Monitoring System has been submitted.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-purple-100 flex-shrink-0 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <p class="font-medium">Meeting scheduled</p>
+                    <span class="text-gray-500 text-xs">26 Jul, 2:00 PM</span>
+                  </div>
+                  <p class="text-gray-600 text-sm">Project review meeting scheduled with Dr. Sharma for the AI-Based Medical Diagnosis Tool.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="md:col-span-1 space-y-6">
+          <!-- User Profile Card -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 rounded-full bg-gray-200 mb-4 flex items-center justify-center text-2xl font-bold text-gray-500" id="user-avatar">U</div>
+              <h3 class="font-semibold text-lg" id="user-name">User Name</h3>
+              <p class="text-gray-500 text-sm mt-1" id="user-email">user@example.com</p>
+              <p class="text-sm mt-3 bg-nitte-blue/10 text-nitte-blue py-1 px-3 rounded-full" id="user-department">Department</p>
+              <a href="profile.html" class="btn btn-outline w-full mt-4">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h2 class="text-xl font-semibold text-nitte-blue mb-4">Upcoming Events</h2>
+            <div class="space-y-4">
+              <div class="border-l-2 border-nitte-gold pl-4">
+                <p class="font-medium">Research Presentation</p>
+                <p class="text-sm text-gray-600">July 30, 2023 • 2:00 PM</p>
+                <p class="text-xs text-gray-500 mt-1">Main Auditorium</p>
+              </div>
+              <div class="border-l-2 border-nitte-blue pl-4">
+                <p class="font-medium">Workshop on Machine Learning</p>
+                <p class="text-sm text-gray-600">August 5, 2023 • 10:00 AM</p>
+                <p class="text-xs text-gray-500 mt-1">CS Seminar Hall</p>
+              </div>
+              <div class="border-l-2 border-gray-300 pl-4">
+                <p class="font-medium">Faculty Research Meeting</p>
+                <p class="text-sm text-gray-600">August 12, 2023 • 3:30 PM</p>
+                <p class="text-xs text-gray-500 mt-1">Conference Room</p>
+              </div>
+            </div>
+            <a href="#" class="text-sm text-nitte-blue hover:underline block mt-4">View all events</a>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h2 class="text-xl font-semibold text-nitte-blue mb-4">Quick Links</h2>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-700 hover:text-nitte-blue flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Submit New Project Proposal
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-700 hover:text-nitte-blue flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Upload Progress Report
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-700 hover:text-nitte-blue flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Research Event Calendar
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-700 hover:text-nitte-blue flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  Team Directory
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-700 hover:text-nitte-blue flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  Research Publications
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get user from localStorage
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (!user) {
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      // Update user information in the UI
+      document.getElementById('welcome-message').textContent = `Welcome, ${user.name}`;
+      document.getElementById('user-name').textContent = user.name;
+      document.getElementById('user-email').textContent = user.email;
+      document.getElementById('user-role').textContent = user.role.charAt(0).toUpperCase() + user.role.slice(1);
+      document.getElementById('user-department').textContent = user.department;
+      document.getElementById('user-avatar').textContent = user.name.charAt(0);
+      
+      // Logout functionality
+      const logoutBtn = document.getElementById('logout-btn');
+      const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+      
+      function logout() {
+        localStorage.removeItem('user');
+        window.location.href = 'login.html';
+      }
+      
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
+      }
+      
+      if (mobileLogoutBtn) {
+        mobileLogoutBtn.addEventListener('click', logout);
+      }
+    });
+  </script>
+</body>
+</html>
