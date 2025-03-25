@@ -1,3 +1,4 @@
+
 import { useParams, Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -120,7 +121,316 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
     ]
   },
   
-  // ... keep existing code (for other departments)
+  "artificial-intelligence-data-science": {
+    name: "Artificial Intelligence & Data Science",
+    faculty: [
+      {
+        id: "aids-1",
+        name: "Dr. Meenakshi",
+        title: "Assistant Professor",
+        image: "/lovable-uploads/bc90a6f0-1610-4210-aea4-6e1557cbd28a.png",
+        specialization: ["Deep Learning", "Machine Learning", "Cyber Security"],
+        email: "meenakshi.rao.kateel@nmit.ac.in",
+        education: "B. E, M. Tech (CNE), PhD (CSE)",
+        research: ["Deep Learning", "Machine Learning", "Cyber Security"],
+        fullInfo: {
+          joiningDate: "2023-07-11",
+          experience: "18+ years",
+          qualification: "B. E, M. Tech (CNE), PhD (CSE)",
+          areaOfInterest: [
+            "Deep Learning",
+            "Machine Learning",
+            "Cyber Security"
+          ],
+          googleScholar: "https://scholar.google.com/citations?user=-UnpKJAAAAAJ&hl=en&authuser=2",
+          orcid: "https://orcid.org/0000-0002-2214-0464",
+          linkedin: "https://www.linkedin.com/in/dr-meenakshi-rao987a28151/"
+        }
+      },
+      {
+        id: "aids-2",
+        name: "Dr. R Vadivel",
+        title: "Associate Professor",
+        image: "/lovable-uploads/46047831-3004-4233-8152-b3b3d010fed6.png",
+        specialization: ["Cloud Computing", "Machine Learning", "Data Science"],
+        email: "vadivel.r@nmit.ac.in",
+        education: "B.E. (CSE), M.E. (CSE), Ph.D (CSE)",
+        research: ["Cloud Computing", "Machine Learning", "Data Science"],
+        fullInfo: {
+          joiningDate: "2024-08-09",
+          experience: "15+ years",
+          qualification: "B.E. (CSE), M.E. (CSE), Ph.D (CSE)",
+          areaOfInterest: [
+            "Cloud Computing",
+            "Machine Learning",
+            "Data Science"
+          ],
+          orcid: "https://orcid.org/0000-0001-5351-2518?lang=en",
+          googleScholar: "https://tinyurl.com/4ws2muxt"
+        }
+      }
+    ]
+  },
+  
+  "artificial-intelligence-machine-learning": {
+    name: "Artificial Intelligence & Machine Learning",
+    faculty: [
+      {
+        id: "aiml-1",
+        name: "Dr. John Doe",
+        title: "Associate Professor",
+        image: "/lovable-uploads/f88be75b-7f30-405c-8477-2c05a23a25d9.png",
+        specialization: ["Machine Learning", "Neural Networks", "Computer Vision"],
+        email: "john.doe@nmit.ac.in",
+        education: "Ph.D. in Computer Science",
+        research: ["Deep Learning", "Reinforcement Learning", "Natural Language Processing"]
+      },
+      {
+        id: "aiml-2",
+        name: "Dr. Jane Smith",
+        title: "Assistant Professor",
+        image: "/lovable-uploads/19a0befa-dd67-4632-a3b9-96634eb147ac.png",
+        specialization: ["AI Ethics", "Statistical Learning", "Pattern Recognition"],
+        email: "jane.smith@nmit.ac.in",
+        education: "Ph.D. in Artificial Intelligence",
+        research: ["Explainable AI", "Bias in Machine Learning", "AI for Social Good"]
+      }
+    ]
+  },
+  
+  "civil-engineering": {
+    name: "Civil Engineering",
+    faculty: [
+      {
+        id: "civil-1",
+        name: "Dr. Robert Johnson",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Structural Engineering", "Earthquake Engineering"],
+        email: "robert.johnson@nmit.ac.in",
+        education: "Ph.D. in Civil Engineering",
+        research: ["Seismic Design", "Reinforced Concrete Structures", "Bridge Engineering"]
+      },
+      {
+        id: "civil-2",
+        name: "Dr. Sarah Williams",
+        title: "Associate Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Geotechnical Engineering", "Soil Mechanics"],
+        email: "sarah.williams@nmit.ac.in",
+        education: "Ph.D. in Geotechnical Engineering",
+        research: ["Foundation Design", "Soil Stabilization", "Underground Structures"]
+      }
+    ]
+  },
+  
+  "computer-science-engineering": {
+    name: "Computer Science & Engineering",
+    faculty: [
+      {
+        id: "cse-1",
+        name: "Dr. Michael Brown",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Algorithms", "Computational Theory", "Software Engineering"],
+        email: "michael.brown@nmit.ac.in",
+        education: "Ph.D. in Computer Science",
+        research: ["Algorithm Design", "Data Structures", "Programming Languages"]
+      },
+      {
+        id: "cse-2",
+        name: "Dr. Emily Davis",
+        title: "Assistant Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Computer Networks", "Cybersecurity", "Distributed Systems"],
+        email: "emily.davis@nmit.ac.in",
+        education: "Ph.D. in Computer Engineering",
+        research: ["Network Security", "Cloud Computing", "Internet of Things"]
+      }
+    ]
+  },
+  
+  "computer-science-business-systems": {
+    name: "Computer Science & Business Systems",
+    faculty: [
+      {
+        id: "csbs-1",
+        name: "Dr. William Turner",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Business Intelligence", "Enterprise Systems", "Database Management"],
+        email: "william.turner@nmit.ac.in",
+        education: "Ph.D. in Information Systems",
+        research: ["Decision Support Systems", "Data Warehousing", "Business Analytics"]
+      },
+      {
+        id: "csbs-2",
+        name: "Dr. Sophia Martinez",
+        title: "Associate Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["E-Commerce", "Business Process Management", "Information Security"],
+        email: "sophia.martinez@nmit.ac.in",
+        education: "Ph.D. in Computer Science",
+        research: ["Business Process Automation", "Financial Information Systems", "Enterprise Architecture"]
+      }
+    ]
+  },
+  
+  "electrical-electronics-engineering": {
+    name: "Electrical & Electronics Engineering",
+    faculty: [
+      {
+        id: "eee-1",
+        name: "Dr. David Clark",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Power Systems", "Electrical Machines", "Power Electronics"],
+        email: "david.clark@nmit.ac.in",
+        education: "Ph.D. in Electrical Engineering",
+        research: ["Smart Grids", "Renewable Energy Integration", "Electric Vehicles"]
+      },
+      {
+        id: "eee-2",
+        name: "Dr. Olivia Taylor",
+        title: "Assistant Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Control Systems", "Signal Processing", "Embedded Systems"],
+        email: "olivia.taylor@nmit.ac.in",
+        education: "Ph.D. in Electronics Engineering",
+        research: ["Adaptive Control", "Digital Signal Processing", "Industrial Automation"]
+      }
+    ]
+  },
+  
+  "electronics-communication-engineering": {
+    name: "Electronics & Communication Engineering",
+    faculty: [
+      {
+        id: "ece-1",
+        name: "Dr. James Wilson",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Communication Systems", "Wireless Networks", "Antenna Design"],
+        email: "james.wilson@nmit.ac.in",
+        education: "Ph.D. in Communication Engineering",
+        research: ["5G Technology", "MIMO Systems", "RF Circuit Design"]
+      },
+      {
+        id: "ece-2",
+        name: "Dr. Elizabeth Moore",
+        title: "Associate Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Microelectronics", "Semiconductor Devices", "VLSI Design"],
+        email: "elizabeth.moore@nmit.ac.in",
+        education: "Ph.D. in Electronics Engineering",
+        research: ["Integrated Circuit Design", "Low Power Electronics", "Nanotechnology"]
+      }
+    ]
+  },
+  
+  "electronics-engineering-vlsi": {
+    name: "Electronics Engineering (VLSI)",
+    faculty: [
+      {
+        id: "vlsi-1",
+        name: "Dr. Christopher Adams",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["VLSI Design", "Digital Design", "Hardware Description Languages"],
+        email: "christopher.adams@nmit.ac.in",
+        education: "Ph.D. in VLSI Design",
+        research: ["Low Power VLSI", "System-on-Chip", "FPGA Design"]
+      },
+      {
+        id: "vlsi-2",
+        name: "Dr. Natalie Parker",
+        title: "Assistant Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["ASIC Design", "Physical Design", "Testing and Verification"],
+        email: "natalie.parker@nmit.ac.in",
+        education: "Ph.D. in Electronics Engineering",
+        research: ["Design for Testability", "Mixed Signal Design", "Analog VLSI"]
+      }
+    ]
+  },
+  
+  "information-science-engineering": {
+    name: "Information Science & Engineering",
+    faculty: [
+      {
+        id: "ise-1",
+        name: "Dr. Daniel Lee",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Data Science", "Information Retrieval", "Web Technologies"],
+        email: "daniel.lee@nmit.ac.in",
+        education: "Ph.D. in Information Science",
+        research: ["Big Data Analytics", "Search Engines", "Semantic Web"]
+      },
+      {
+        id: "ise-2",
+        name: "Dr. Rachel Green",
+        title: "Associate Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Database Systems", "Knowledge Management", "Information Security"],
+        email: "rachel.green@nmit.ac.in",
+        education: "Ph.D. in Information Systems",
+        research: ["Database Optimization", "Data Mining", "Privacy Preserving Technologies"]
+      }
+    ]
+  },
+  
+  "mechanical-engineering": {
+    name: "Mechanical Engineering",
+    faculty: [
+      {
+        id: "mech-1",
+        name: "Dr. George Thompson",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Thermodynamics", "Fluid Mechanics", "Heat Transfer"],
+        email: "george.thompson@nmit.ac.in",
+        education: "Ph.D. in Mechanical Engineering",
+        research: ["Thermal Systems", "Computational Fluid Dynamics", "Energy Conversion"]
+      },
+      {
+        id: "mech-2",
+        name: "Dr. Patricia Anderson",
+        title: "Assistant Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Manufacturing Processes", "CAD/CAM", "Materials Science"],
+        email: "patricia.anderson@nmit.ac.in",
+        education: "Ph.D. in Manufacturing Engineering",
+        research: ["Advanced Manufacturing", "3D Printing", "Composite Materials"]
+      }
+    ]
+  },
+  
+  "robotics-artificial-intelligence": {
+    name: "Robotics & Artificial Intelligence",
+    faculty: [
+      {
+        id: "rai-1",
+        name: "Dr. Alexander White",
+        title: "Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Robotics Systems", "Computer Vision", "Motion Planning"],
+        email: "alexander.white@nmit.ac.in",
+        education: "Ph.D. in Robotics",
+        research: ["Autonomous Robots", "Human-Robot Interaction", "Robot Learning"]
+      },
+      {
+        id: "rai-2",
+        name: "Dr. Victoria Harris",
+        title: "Associate Professor",
+        image: "/placeholder-image.jpg",
+        specialization: ["Intelligent Control", "Swarm Robotics", "Evolutionary Computation"],
+        email: "victoria.harris@nmit.ac.in",
+        education: "Ph.D. in Artificial Intelligence",
+        research: ["Multi-Agent Systems", "Genetic Algorithms", "Neural Control"]
+      }
+    ]
+  }
 };
 
 export default function FacultyPage() {
