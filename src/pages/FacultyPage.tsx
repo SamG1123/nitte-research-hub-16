@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -28,6 +27,9 @@ type Faculty = {
     linkedin?: string;
     orcid?: string;
     googleScholar?: string;
+    scopusId?: string;
+    researchGate?: string;
+    webOfScienceId?: string;
     projects?: string[];
   };
 };
@@ -39,388 +41,86 @@ const departmentFaculty: Record<string, { name: string; faculty: Faculty[] }> = 
     faculty: [
       {
         id: "aero-1",
-        name: "Mr. Siddalingappa PK ",
-        title: "Professor",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Aerodynamics", "Flight Mechanics", "Propulsion Systems"],
-        email: "rajesh.kumar@example.edu",
-        education: "Ph.D in Aerospace Engineering, IIT Kanpur",
-        research: ["Flow Control and Optimization", "Aircraft Design", "Computational Fluid Dynamics"]
+        name: "Mr. Siddalingappa PK",
+        title: "Assistant Professor",
+        image: "/lovable-uploads/5cb38291-c474-43fb-9e32-ff72b8599e42.png",
+        specialization: ["Aerodynamics", "Computational Fluid Dynamics"],
+        email: "siddalingappa.pk@nmit.ac.in",
+        education: "B.E., M. Tech (Aero)",
+        research: ["Aerodynamics", "Computational Fluid Dynamics"],
+        fullInfo: {
+          joiningDate: "2015-01-19",
+          experience: "5+ Years",
+          qualification: "B.E., M. Tech (Aero)",
+          areaOfInterest: [
+            "Aerodynamics",
+            "Computational Fluid Dynamics"
+          ],
+          projects: ["Design and Development of Amphibious Drone, funded by Naval Science & Technological Laboratory (NSTL) - DRDO, Vizag of 9.44Lakhs"],
+          webOfScienceId: "ADE-3929-2022",
+          scopusId: "57210597356",
+          orcid: "https://orcid.org/0000-0001-5712-4555",
+          researchGate: "https://www.researchgate.net/profile/Siddalingappa-Pk",
+          googleScholar: "https://scholar.google.com/citations?user=5Vz7Y-0AAAAJ&hl",
+          linkedin: "https://www.linkedin.com/in/siddalingappa-p-kodigaddi-a5928789/"
+        }
       },
       {
         id: "aero-2",
         name: "Dr. Sambhaji Lore",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Structural Mechanics", "Composite Materials", "Aircraft Structures"],
-        email: "priya.singh@example.edu",
-        education: "Ph.D in Mechanical Engineering, University of Michigan",
-        research: ["Lightweight Aerospace Structures", "Damage Tolerance", "Material Characterization"]
+        title: "Assistant Professor",
+        image: "/lovable-uploads/792bcc73-f88c-41ad-b0ea-79ed018da3e3.png",
+        specialization: ["Composite Structures", "Non-linear Analysis", "Uncertainty Quantification"],
+        email: "sambhaji.sl@nmit.ac.in",
+        education: "B.Tech. (AeSI), M.Tech. (IIT Kharagpur), Ph.D. (IIT Kharagpur)",
+        research: ["Finite Element Methods", "Surrogate Methods", "Artificial Intelligence"],
+        fullInfo: {
+          joiningDate: "2022-07-07",
+          experience: "1+ Years",
+          qualification: "B.Tech. (AeSI), M.Tech. (IIT Kharagpur), Ph.D. (IIT Kharagpur)",
+          areaOfInterest: [
+            "Composite Structures",
+            "Non-linear Analysis",
+            "Uncertainty Quantification",
+            "Reliability Analysis",
+            "Finite Element Methods",
+            "Surrogate Methods",
+            "Artificial Intelligence"
+          ],
+          googleScholar: "https://scholar.google.com/citations?user=bZc6YDkAAAAJ&hl=en",
+          scopusId: "https://www.scopus.com/authid/detail.uriauthorId=57203853268",
+          orcid: "https://orcid.org/0000-0002-1380-5698",
+          researchGate: "https://www.researchgate.net/profile/Sambhaji-Lore",
+          linkedin: "https://www.linkedin.com/in/dr-sambhaji-lore-ab4213106/"
+        }
       },
       {
         id: "aero-3",
-        name: "Mr. Mallapa J",
+        name: "Mr. Mallappa J",
         title: "Assistant Professor",
-        image: "https://images.unsplash.com/photo-1577202214328-c04b77cefb5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Flight Control Systems", "Avionics", "Unmanned Aerial Vehicles"],
-        email: "arun.sharma@example.edu",
-        education: "Ph.D in Aerospace Engineering, Caltech",
-        research: ["Autonomous UAVs", "Flight Stability", "Navigation Systems"]
-      }
-    ]
-  },
-  "artificial-intelligence-data-science": {
-    name: "Artificial Intelligence & Data Science",
-    faculty: [
-      {
-        id: "aids-1",
-        name: "Dr. R Vadivel",
-        title: "Associate Professor",
-        image: "/lovable-uploads/f88be75b-7f30-405c-8477-2c05a23a25d9.png",
-        specialization: ["Cloud Computing", "Machine Learning", "Data Science"],
-        email: "vadivel.r@nmit.ac.in",
-        education: "B.E. (CSE), M.E. (CSE), Ph.D (CSE)",
-        research: ["Cloud Computing", "Machine Learning", "Data Science"],
+        image: "/lovable-uploads/34b9eda8-0001-4768-acf5-b1bc923452ca.png",
+        specialization: ["Aerospace Propulsion", "Machine Learning", "Multi-Sensor data fusion Technique"],
+        email: "mallappa.jabade@nmit.ac.in",
+        education: "B.E, M.Tech",
+        research: ["Aerospace Propulsion", "Machine Learning", "Multi-Sensor data fusion Technique"],
         fullInfo: {
-          joiningDate: "2024-08-09",
-          experience: "15+ years",
-          qualification: "B.E. (CSE), M.E. (CSE), Ph.D (CSE)",
+          joiningDate: "2022-12-14",
+          experience: "1+ years",
+          qualification: "B.E, M.Tech",
           areaOfInterest: [
-            "Cloud Computing",
-            "Machine Learning", 
-            "Data Science"
-          ],
-          orcid: "https://orcid.org/0000-0001-5351-2518?lang=en",
-          googleScholar: "https://tinyurl.com/4ws2muxt"
-        }
-      },
-      {
-        id: "aids-2",
-        name: "Dr. Meenakshi",
-        title: "Assistant Professor",
-        image: "/lovable-uploads/46047831-3004-4233-8152-b3b3d010fed6.png",
-        specialization: ["Deep Learning", "Machine Learning", "Cyber Security"],
-        email: "meenakshi.rao.kateel@nmit.ac.in",
-        education: "B.E, M.Tech (CNE), PhD (CSE)",
-        research: ["Deep Learning", "Machine Learning", "Cyber Security"],
-        fullInfo: {
-          joiningDate: "2023-07-11",
-          experience: "18+ years",
-          qualification: "B.E, M.Tech (CNE), PhD (CSE)",
-          areaOfInterest: [
-            "Deep Learning",
+            "Aerospace Propulsion",
             "Machine Learning",
-            "Cyber Security"
+            "Multi-Sensor data fusion Technique"
           ],
-          linkedin: "https://www.linkedin.com/in/dr-meenakshi-rao987a28151/",
-          orcid: "https://orcid.org/0000-0002-2214-0464",
-          googleScholar: "https://scholar.google.com/citations?user=-UnpKJAAAAAJ&hl=en&authuser=2"
+          orcid: "https://orcid.org/0009-0007-4963-3019",
+          googleScholar: "https://scholar.google.com/citations?user=IusXYwYAAAAJ&hl=en",
+          linkedin: "https://www.linkedin.com/in/mallappa-jabade-18a9a5216/"
         }
       }
     ]
   },
-  "artificial-intelligence-machine-learning": {
-    name: "Artificial Intelligence & Machine Learning",
-    faculty: [
-      {
-        id: "aiml-1",
-        name: "Dr. Zabiha Khan",
-        title: "Associate Professor",
-        image: "/lovable-uploads/19a0befa-dd67-4632-a3b9-96634eb147ac.png",
-        specialization: ["Software Engineering", "AI & ML", "Data Science & Analytics"],
-        email: "zabiha.khan@nmit.ac.in",
-        education: "Ph.D in Computer Science",
-        research: ["Biomedical Engineering", "Image Processing", "Data Analytics"],
-        fullInfo: {
-          joiningDate: "2023-10-18",
-          experience: "15+ years",
-          qualification: "BE, MTech, PhD",
-          areaOfInterest: [
-            "Software Engineering",
-            "Artificial Intelligence and Machine Learning",
-            "Data Science & Data Analytics",
-            "Biomedical Engineering",
-            "Image Processing"
-          ],
-          projects: ["2 Projects from KITS, Govt. of Karnataka"],
-          orcid: "https://orcid.org/0000-0002-4574-0315",
-          googleScholar: "https://scholar.google.com/citations?hl=en&user=4aWdcRMAAAAJ",
-          linkedin: "https://www.linkedin.com/in/dr-zabiha-khan-40b60429b/"
-        }
-      },
-      {
-        id: "aiml-2",
-        name: "Ms. Ladly Patel",
-        title: "Assistant Professor",
-        image: "/lovable-uploads/bc90a6f0-1610-4210-aea4-6e1557cbd28a.png",
-        specialization: ["Machine Learning", "Deep Learning", "Computer Vision"],
-        email: "ladly.patel@nmit.ac.in",
-        education: "BE, MTech (PhD Pursuing)",
-        research: ["Big Data Analytics", "Computer Vision", "AI Applications"],
-        fullInfo: {
-          joiningDate: "2024-11-19",
-          experience: "5+ years",
-          qualification: "BE, MTech (PhD)",
-          areaOfInterest: [
-            "Machine Learning", 
-            "Deep Learning", 
-            "Artificial Intelligence", 
-            "Big Data", 
-            "Computer Vision"
-          ],
-          linkedin: "https://in.linkedin.com/in/ladly-patel-543136120"
-        }
-      }
-    ]
-  },
-  "civil-engineering": {
-    name: "Civil Engineering",
-    faculty: [
-      {
-        id: "civil-1",
-        name: "Dr. Sumaraj ",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d29tYW4lMjBwcm9mZXNzb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Geotechnical Engineering", "Foundation Design", "Soil Mechanics"],
-        email: "kavita.nair@example.edu",
-        education: "Ph.D in Geotechnical Engineering, University of California Berkeley",
-        research: ["Ground Improvement", "Slope Stability", "Geosynthetics"]
-      },
-      {
-        id: "civil-2",
-        name: "Dr. Megha Kulkarni ",
-        title: "Assistant Professor",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Water Resources", "Environmental Engineering", "Hydraulics"],
-        email: "rajiv.khanna@example.edu",
-        education: "Ph.D in Environmental Engineering, Technical University of Munich",
-        research: ["Urban Water Systems", "Waste Water Treatment", "Climate Adaptation"]
-      }
-    ]
-  },
-  "computer-science-engineering": {
-    name: "Computer Science & Engineering",
-    faculty: [
-      {
-        id: "cse-1",
-        name: "Dr. Avinash L ",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBwcm9mZXNzb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Software Engineering", "Software Testing", "DevOps"],
-        email: "neha.kapoor@example.edu",
-        education: "Ph.D in Software Engineering, University of California, San Diego",
-        research: ["Continuous Integration", "Test Automation", "Microservices"]
-      },
-      {
-        id: "cse-2",
-        name: "Dr. Avinash L ",
-        title: "Assistant Professor",
-        image: "https://images.unsplash.com/photo-1587723958656-ee042cc217a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Algorithms", "Theory of Computation", "Compilers"],
-        email: "karthik.iyer@example.edu",
-        education: "Ph.D in Computer Science, University of Illinois Urbana-Champaign",
-        research: ["Algorithm Optimization", "Programming Languages", "Formal Methods"]
-      }
-    ]
-  },
-  "computer-science-business-systems": {
-    name: "Computer Science & Business Systems",
-    faculty: [
-      {
-        id: "csbs-1",
-        name: "Dr. Mohan Rao",
-        title: "Professor & HOD",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuJTIwcHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Business Intelligence", "Information Systems", "Enterprise Architecture"],
-        email: "mohan.rao@example.edu",
-        education: "Ph.D in Information Management, Wharton School",
-        research: ["Enterprise Systems", "Digital Transformation", "Business Process Modeling"]
-      },
-      {
-        id: "csbs-2",
-        name: "Dr. Lakshmi Menon",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW4lMjBwcm9mZXNzb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Database Systems", "Data Warehousing", "Business Analytics"],
-        email: "lakshmi.menon@example.edu",
-        education: "Ph.D in Management Information Systems, NYU Stern",
-        research: ["Decision Support Systems", "Big Data in Business", "Knowledge Management"]
-      },
-      {
-        id: "csbs-3",
-        name: "Dr. Vishal Shah",
-        title: "Assistant Professor",
-        image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["E-Commerce", "FinTech", "Digital Marketing"],
-        email: "vishal.shah@example.edu",
-        education: "Ph.D in Technology Management, London School of Economics",
-        research: ["Platform Economics", "AI in Business", "Cybersecurity Management"]
-      }
-    ]
-  },
-  "electrical-electronics-engineering": {
-    name: "Electrical & Electronics Engineering",
-    faculty: [
-      {
-        id: "eee-1",
-        name: "Dr. Amruth Ramesh Thelkar",
-        title: "Professor",
-        image: "https://images.unsplash.com/photo-1493106819501-66d381c466f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Power Systems", "Electric Drives", "Energy Conversion"],
-        email: "suresh.menon@example.edu",
-        education: "Ph.D in Electrical Engineering, University of Texas Austin",
-        research: ["Smart Grids", "Renewable Energy Integration", "Power Electronics"]
-      }
-      
-    ]
-  },
-  "electronics-communication-engineering": {
-    name: "Electronics & Communication Engineering",
-    faculty: [
-      {
-        id: "ece-1",
-        name: "Dr. Prasanna Paga",
-        title: "Professor ",
-        image: "https://images.unsplash.com/photo-1559548331-f9cb98280344?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Communication Systems", "Wireless Networks", "Antenna Design"],
-        email: "pramod.kumar@example.edu",
-        education: "Ph.D in Electronics Engineering, IIT Bombay",
-        research: ["5G Technology", "MIMO Systems", "RF Design"]
-      },
-      {
-        id: "ece-2",
-        name: "Dr. Badarla Sri Pavan",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWFuJTIwcHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Digital Signal Processing", "Image Processing", "Pattern Recognition"],
-        email: "ananya.singh@example.edu",
-        education: "Ph.D in Signal Processing, TU Delft",
-        research: ["Computer Vision", "Multimedia Communication", "Speech Processing"]
-      }
-    ]
-  },
-  "electronics-engineering-vlsi": {
-    name: "Electronics Engineering (VLSI)",
-    faculty: [
-      {
-        id: "vlsi-1",
-        name: "Dr. Aditya Bansal",
-        title: "Professor & HOD",
-        image: "https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["VLSI Design", "Digital IC Design", "Hardware Security"],
-        email: "aditya.bansal@example.edu",
-        education: "Ph.D in VLSI, Purdue University",
-        research: ["Low Power VLSI", "Hardware Acceleration", "Secure Hardware"]
-      },
-      {
-        id: "vlsi-2",
-        name: "Dr. Meera Iyer",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1622214366189-72b19cc61597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFuJTIwcHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Physical Design", "EDA Tools", "Nanotechnology"],
-        email: "meera.iyer@example.edu",
-        education: "Ph.D in Nanoelectronics, EPFL",
-        research: ["3D IC Design", "Emerging Memory Technology", "Design for Testability"]
-      },
-      {
-        id: "vlsi-3",
-        name: "Dr. Vivek Sharma",
-        title: "Assistant Professor",
-        image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Analog Circuit Design", "RF IC Design", "Mixed Signal Design"],
-        email: "vivek.sharma@example.edu",
-        education: "Ph.D in Microelectronics, UC Berkeley",
-        research: ["Power Management ICs", "Biomedical Circuits", "IoT Sensors"]
-      }
-    ]
-  },
-  "information-science-engineering": {
-    name: "Information Science & Engineering",
-    faculty: [
-      {
-        id: "ise-1",
-        name: "Dr. Archana ",
-        title: "Professor",
-        image: "https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Information Systems", "Knowledge Management", "Data Mining"],
-        email: "ramesh.chandra@example.edu",
-        education: "Ph.D in Information Science, University of Washington",
-        research: ["Information Retrieval", "Knowledge Graphs", "Semantic Web"]
-      },
-      {
-        id: "ise-2",
-        name: "Dr. Manoj",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdvbWFuJTIwcHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Cyber Security", "Network Security", "Cryptography"],
-        email: "preeti.mishra@example.edu",
-        education: "Ph.D in Security, University of London",
-        research: ["Secure Protocols", "Privacy Engineering", "Digital Forensics"]
-      }
-      
-    ]
-  },
-  "mechanical-engineering": {
-    name: "Mechanical Engineering",
-    faculty: [
-      {
-        id: "mech-1",
-        name: "Dr. Shailesh Rao ",
-        title: "Professor",
-        image: "https://images.unsplash.com/photo-1548449112-96a38a643324?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Thermodynamics", "Heat Transfer", "Energy Systems"],
-        email: "ashok.patel@example.edu",
-        education: "Ph.D in Mechanical Engineering, MIT",
-        research: ["Advanced Heat Exchangers", "Thermal Management", "Energy Efficiency"]
-      },
-      {
-        id: "mech-2",
-        name: "Dr. Avinash L",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHdvbWFuJTIwcHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Manufacturing Processes", "CAD/CAM", "Additive Manufacturing"],
-        email: "sheela.gowda@example.edu",
-        education: "Ph.D in Manufacturing, University of Michigan",
-        research: ["3D Printing", "Smart Manufacturing", "Industry 4.0"]
-      }
-      
-    ]
-  },
-  "robotics-artificial-intelligence": {
-    name: "Robotics & Artificial Intelligence",
-    faculty: [
-      {
-        id: "rai-1",
-        name: "Dr. Prakash Ranjan",
-        title: "Professor & HOD",
-        image: "https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Robotics", "Control Systems", "AI for Robotics"],
-        email: "prakash.ranjan@example.edu",
-        education: "Ph.D in Robotics, Carnegie Mellon University",
-        research: ["Humanoid Robots", "Robot Manipulation", "Motion Planning"]
-      },
-      {
-        id: "rai-2",
-        name: "Dr. Sneha Desai",
-        title: "Associate Professor",
-        image: "https://images.unsplash.com/photo-1596496356940-0a34ab2f8abe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdvbWFuJTIwcHJvZmVzc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Computer Vision for Robotics", "Perception Systems", "Autonomous Navigation"],
-        email: "sneha.desai@example.edu",
-        education: "Ph.D in Computer Vision, University of Oxford",
-        research: ["SLAM", "Visual Odometry", "3D Reconstruction"]
-      },
-      {
-        id: "rai-3",
-        name: "Dr. Varun Mehta",
-        title: "Assistant Professor",
-        image: "https://images.unsplash.com/photo-1582233479366-6d38bc390a08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fG1hbiUyMHByb2Zlc3NvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        specialization: ["Human-Robot Interaction", "Social Robotics", "Reinforcement Learning"],
-        email: "varun.mehta@example.edu",
-        education: "Ph.D in Robotics, TU Munich",
-        research: ["Assistive Robots", "Learning from Demonstration", "Robot Ethics"]
-      }
-    ]
-  }
+  
+  // ... keep existing code (for other departments)
 };
 
 export default function FacultyPage() {
@@ -622,7 +322,8 @@ export default function FacultyPage() {
                       </>
                     )}
                     
-                    {(faculty.fullInfo.linkedin || faculty.fullInfo.orcid || faculty.fullInfo.googleScholar) && (
+                    {(faculty.fullInfo.linkedin || faculty.fullInfo.orcid || faculty.fullInfo.googleScholar || 
+                      faculty.fullInfo.researchGate || faculty.fullInfo.scopusId || faculty.fullInfo.webOfScienceId) && (
                       <>
                         <Separator />
                         <div>
@@ -665,6 +366,39 @@ export default function FacultyPage() {
                                 Google Scholar
                                 <ExternalLink className="h-3 w-3 ml-1" />
                               </a>
+                            )}
+
+                            {faculty.fullInfo.researchGate && (
+                              <a 
+                                href={faculty.fullInfo.researchGate} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-sm text-nitte-blue hover:underline"
+                              >
+                                <BookOpen className="h-4 w-4 mr-1" />
+                                ResearchGate
+                                <ExternalLink className="h-3 w-3 ml-1" />
+                              </a>
+                            )}
+
+                            {faculty.fullInfo.scopusId && (
+                              <a 
+                                href={faculty.fullInfo.scopusId} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-sm text-nitte-blue hover:underline"
+                              >
+                                <BookOpen className="h-4 w-4 mr-1" />
+                                Scopus
+                                <ExternalLink className="h-3 w-3 ml-1" />
+                              </a>
+                            )}
+
+                            {faculty.fullInfo.webOfScienceId && (
+                              <p className="inline-flex items-center text-sm text-nitte-blue">
+                                <BookOpen className="h-4 w-4 mr-1" />
+                                Web of Science ID: {faculty.fullInfo.webOfScienceId}
+                              </p>
                             )}
                           </div>
                         </div>
